@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet"href="/static/css/main.css">
+        <title>ひとりまーじゃん</title>
+    </head>
+
+    <body class="vue">
+        <div id="app">
+            <div class="win">
+                <a href="/vue"><img v-if="agari" src="/static/pic/win.png"></a>
+            </div>
+            <div class="sutehai">
+                <template v-for="(hai, index) in kawa"><br v-if="(index % 9) == 0" ><img  v-bind:src="`/static/pic/${hai.pic}`"></template>
+            </div>
+            <div class="tehai">
+                <img v-for="(hai, index) in tehai" v-bind:src="`/static/pic/${hai.pic}`" v-on:click="change(index)">
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="/static/js/mahjong.js"></script>
+        <script src="/static/js/main.js"></script>
+    </body>
+</html>

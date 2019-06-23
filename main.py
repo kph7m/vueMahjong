@@ -35,6 +35,10 @@ def change():
 
     return render_template('main.html', tehai=tehai, sutehai=sutehai, win=mahjong.judge(tehai))
 
+# vue.jsバージョン
+@app.route('/vue')
+def vue():
+    return render_template('vueJong.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

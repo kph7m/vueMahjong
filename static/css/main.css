@@ -1,5 +1,8 @@
-body{
+.flask{
     background-color: mediumaquamarine;
+}
+.vue{
+    background-color:steelblue; 
 }
 .sutehai{
     text-align  : left;
