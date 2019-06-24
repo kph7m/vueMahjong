@@ -1,4 +1,3 @@
-
 const KINDS = {
     SUUPAI : ['manzu', 'pinzu', 'souzu'],
     JIHAI : ['sufonpai', 'sangenpai']
@@ -23,9 +22,9 @@ const MENTSU_KINDS = ['順子','刻子']
 class Hai{
     //コンストラクタ
     constructor(kind, value){
-        this.kind = kind;
-        this.value = value;
-        this.pic = this.kind+'_'+String(this.value)+'.png';
+        this.kind = kind;       //麻雀牌の種類（萬子・筒子・索子・四風牌・三元牌）
+        this.value = value;     //麻雀牌の値（1~9 東南西北白発中）
+        this.pic = this.kind+'_'+String(this.value)+'.png'; //画像ファイル名
     }
 
     //ソートキーを返却
@@ -174,8 +173,8 @@ function judge(tehai){
 //重複要素取得
 //duplicateCount：重複数
 function findDuplicate(array,duplicateCount){
-    let setArray = array.filter((val, i, self) => 
-        self.findIndex(n => val.equals(n)) === i);
+    let setArray = array.filter((val, index, self) => 
+        self.findIndex(n => val.equals(n)) === index);
     let result = setArray.filter(val => 
         (array.filter(n => val.equals(n)).length >= duplicateCount));
     return result.sort(sortHai);
@@ -397,23 +396,6 @@ function checkKokushimusou(tehai){
     }
 }
 
-
-function test1(){
-    let tile = new Hai(KINDS.SUUPAI[0],SUUPAI_VALUE[1]);
-    window.alert(tile.pic);
-}
-
-function test2(){
-    let tile = [...yamahaiGenerator(KINDS.SUUPAI,SUUPAI_VALUE)
-                ,...yamahaiGenerator([KINDS.JIHAI[0]],Object.keys(SUFONPAI_VALUE))
-                ,...yamahaiGenerator([KINDS.JIHAI[1]],Object.keys(SANGENPAI_VALUE))];
-    window.alert(tile[0].pic+':'+tile[45].pic+':'+tile[100].pic
-    +':'+tile[120].pic+':'+tile[135].pic);
-}
-
-function test3(){
-    window.alert(yamahai.shift().pic);
-}
 
 const TEST_TEHAI = ['23333444556688', '22333456667788', '22344445556677', '11123334445577',
                     '22223333444556', '11222345556677', '22333344555667', '11333445566678',

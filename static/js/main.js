@@ -1,12 +1,15 @@
 var app = new Vue({
     el:'#app',
     data:{
-        yamahai : createYamahai(),
+        yamahai : [],
         kawa : [],
         tehai : [],
         agari : false
     },
     created: function() {
+        //山牌作成
+        this.yamahai = createYamahai();
+
         //配牌作成（山牌から14牌取得する）
         for (let i = 0; i<14; i++ ) {
           this.tehai.push(this.yamahai.shift());
@@ -38,5 +41,5 @@ var app = new Vue({
             //あがり判定
             this.agari = judge(this.tehai);
         }
-  }
+    }
 })
